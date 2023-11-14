@@ -8,7 +8,7 @@
   <body>
     <h1>Ma todo list</h1>
     <ul id="list"></ul>
-    <form action="/action_page.php" id="form">
+    <form action="http://localhost:3000/" id="form">
       <label for="todo">Ajouter :</label><br />
       <input type="text" id="todo" name="todo" value="" /><br />
       <input type="submit" value="Submit" />
@@ -19,10 +19,18 @@
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const todo = document.querySelector("#todo").value;
-      postData("http://localhost:3000/", { todo: todo }).then((donnees) => {
-        console.log(donnees); // Les données JSON analysées par l'appel `donnees.json()`
-      });
+      postData("http://localhost:3000/api/todos", { todo: todo }).then(
+        (donnees) => {
+          console.log(donnees); // Les données JSON analysées par l'appel `donnees.json()`
+          document.querySelector("#form").reset();
+          location.reload();
+        }
+      );
       // GERER LE POST ICI
+    });
+    document.querySelector("#list").addEventListener("click", (e) => {
+      // console.log(e.target.innerText);
+      deleteTodo(e.target.innerText);
     });
     getTodos();
     async function getTodos() {
@@ -38,6 +46,14 @@
         const li = document.createElement("li");
         li.textContent = todo;
         list.appendChild(li);
+      });
+    }
+
+    async function deleteTodo(toDoText) {
+      const response = await fetch("http://localhost:3000/api/todos", {
+        method: "DELETE",
+        mode: "cors", // no-cors, *cors, same-origin
+        body: JSON.stringify({ todo: toDoText }),
       });
     }
 

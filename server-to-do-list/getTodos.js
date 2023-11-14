@@ -1,5 +1,9 @@
+import fs from "fs";
+
 export function getTodos(req, res) {
-  const todoList = ["Faire du café", "Apprendre nodejs"];
-  res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(todoList));
+  const todoListBuffer = fs.readFileSync("items.txt");
+  const todoListString = todoListBuffer.toString();
+  const todoListArray = todoListString.split("\n");
+  const purgedToDolist = todoListArray.filter((item) => item);
+  res.end(JSON.stringify(purgedToDolist));
 }
