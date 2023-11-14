@@ -29,8 +29,7 @@
       // GERER LE POST ICI
     });
     document.querySelector("#list").addEventListener("click", (e) => {
-      // console.log(e.target.innerText);
-      deleteTodo(e.target.innerText);
+      deleteTodo(e.target.innerText).then(location.reload);
     });
     getTodos();
     async function getTodos() {
