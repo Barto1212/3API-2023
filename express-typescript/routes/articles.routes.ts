@@ -1,10 +1,12 @@
-import { getAllArticles } from "../bdd-articles/getAllArticles.js";
-import { deleteOneArticle } from "../bdd-articles/deleteOneArticle.js";
+import { getAllArticles } from "../bdd-articles/getAllArticles";
+import { deleteOneArticle } from "../bdd-articles/deleteOneArticle";
+import { saveOneArticle } from "../bdd-articles/saveOneArticle";
 import { Router } from "express";
+import type { Response, Request } from "express";
 
 const articleRoutes = Router();
 
-articleRoutes.post("/", async (req, res) => {
+articleRoutes.post("/", async (req: Request, res: Response) => {
   const newArticle = req.body;
   if (!(newArticle.name && newArticle.description && newArticle.price)) {
     return res.sendStatus(400);
