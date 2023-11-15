@@ -1,16 +1,14 @@
 import { Router } from "express";
-import { saveOneArticleToCart } from "../bdd-cart/saveOneArticle.js";
+import { saveOneToCart } from "../bdd-cart/saveOneToCart.js";
 import { getAllCardArticles } from "../bdd-cart/getAllArticles.js";
-import { getAllArticles } from "../bdd-articles/getAllArticles.js";
-import { auth } from "../middleware/auth.js";
+import { getOneArticle } from "../bdd-articles/getOneArticle.js";
 const cartRoutes = Router();
 
-cartRoutes.patch("/:articleId", auth, async (req, res) => {
+cartRoutes.patch("/:articleId", async (req, res) => {
   const { articleId } = req.params;
-  const articles = await getAllArticles();
-  const article = articles.find((art) => art.id == articleId);
+  const article = await getOneArticle(articleId);
   if (!article) return res.sendStatus(404);
-  await saveOneArticleToCart(article);
+  await saveOneToCart(article);
   res.sendStatus(201);
 });
 cartRoutes.get("/amount", async (req, res) => {

@@ -1,16 +1,23 @@
 import { getAllArticles } from "../bdd-articles/getAllArticles.js";
 import { deleteOneArticle } from "../bdd-articles/deleteOneArticle.js";
+import { saveOneArticle } from "../bdd-articles/saveOneArticle.js";
+import { getOneArticle } from "../bdd-articles/getOneArticle.js";
 import { Router } from "express";
 
 const articleRoutes = Router();
 
 articleRoutes.post("/", async (req, res) => {
-  const newArticle = req.body;
-  if (!(newArticle.name && newArticle.description && newArticle.price)) {
-    return res.sendStatus(400);
+  try {
+    const newArticle = req.body;
+    if (!(newArticle.name && newArticle.description && newArticle.price)) {
+      return res.sendStatus(400);
+    }
+    await saveOneArticle(newArticle);
+    res.sendStatus(201);
+  } catch (error) {
+    res.sendStatus(500);
+    console.log(error);
   }
-  await saveOneArticle(newArticle);
-  res.sendStatus(201);
 });
 articleRoutes.get("/", async (req, res) => {
   const articles = await getAllArticles();
@@ -18,9 +25,8 @@ articleRoutes.get("/", async (req, res) => {
 });
 articleRoutes.get("/:id", async (req, res) => {
   const id = req.params.id;
-  const articles = await getAllArticles();
-  const article = articles.find((art) => art.id === parseInt(id));
-  if (!article) res.sendStatus(404);
+  const article = await getOneArticle(id);
+  if (!article) return res.sendStatus(404);
   res.send(article);
 });
 articleRoutes.delete("/:id", async (req, res) => {
