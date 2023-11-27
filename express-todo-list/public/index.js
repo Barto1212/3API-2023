@@ -12,7 +12,10 @@ form.addEventListener('submit', (e) => {
   // GERER LE POST ICI
 })
 document.querySelector('#list').addEventListener('click', (e) => {
-  deleteTodo(e.target.id).then(location.reload)
+  deleteTodo(e.target.id).then((data) => {
+    console.log(data)
+    location.reload
+  })
 })
 
 async function getTodos() {
@@ -33,10 +36,11 @@ async function getTodos() {
 }
 
 async function deleteTodo(toDoText) {
-  const response = await fetch(`http://localhost/api/${toDoText}`, {
+  const response = await fetch(`http://localhost/api/todo/${toDoText}`, {
     method: 'DELETE',
     mode: 'cors', // no-cors, *cors, same-origin
   })
+  return response
 }
 
 async function postData(url = 'http://localhost/api/todo', donnees = {}) {
