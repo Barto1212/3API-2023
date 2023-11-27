@@ -14,7 +14,7 @@ form.addEventListener('submit', (e) => {
 document.querySelector('#list').addEventListener('click', (e) => {
   deleteTodo(e.target.id).then((data) => {
     console.log(data)
-    location.reload
+    location.reload()
   })
 })
 
