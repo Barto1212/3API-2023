@@ -14,7 +14,7 @@ const userRoutes = express.Router();
 app.use("/api/user", userRoutes);
 
 // renvoyer le tableau "users" :
-userRoutes.get("/", monMiddleWare, (req, res) => {
+userRoutes.get("/", (req, res) => {
   res.send(users);
 });
 
@@ -27,3 +27,5 @@ userRoutes.post("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
+
+export { app };
