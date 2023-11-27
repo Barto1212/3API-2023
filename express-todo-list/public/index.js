@@ -4,13 +4,11 @@ const form = document.querySelector('#form')
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   const todo = document.querySelector('#todo').value
-  postData('http://localhost:3000/api/todos', { todo: todo }).then(
-    (donnees) => {
-      console.log(donnees) // Les données JSON analysées par l'appel `donnees.json()`
-      document.querySelector('#form').reset()
-      location.reload()
-    },
-  )
+  postData('http://localhost/api/todo', { todo: todo }).then((donnees) => {
+    console.log(donnees) // Les données JSON analysées par l'appel `donnees.json()`
+    document.querySelector('#form').reset()
+    location.reload()
+  })
   // GERER LE POST ICI
 })
 document.querySelector('#list').addEventListener('click', (e) => {
@@ -18,7 +16,7 @@ document.querySelector('#list').addEventListener('click', (e) => {
 })
 
 async function getTodos() {
-  const response = await fetch('http://localhost:3000/api/todos', {
+  const response = await fetch('http://localhost/api/todo', {
     method: 'GET',
     mode: 'cors', // no-cors, *cors, same-origin
   })
@@ -34,14 +32,14 @@ async function getTodos() {
 }
 
 async function deleteTodo(toDoText) {
-  const response = await fetch('http://localhost:3000/api/todos', {
+  const response = await fetch('http://localhost/api/todo', {
     method: 'DELETE',
     mode: 'cors', // no-cors, *cors, same-origin
     body: JSON.stringify({ todo: toDoText }),
   })
 }
 
-async function postData(url = '', donnees = {}) {
+async function postData(url = 'http://localhost/api/todo', donnees = {}) {
   // Les options par défaut sont indiquées par *
   const response = await fetch(url, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
