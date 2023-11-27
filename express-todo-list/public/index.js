@@ -12,7 +12,7 @@ form.addEventListener('submit', (e) => {
   // GERER LE POST ICI
 })
 document.querySelector('#list').addEventListener('click', (e) => {
-  deleteTodo(e.target.innerText).then(location.reload)
+  deleteTodo(e.target.id).then(location.reload)
 })
 
 async function getTodos() {
@@ -27,15 +27,15 @@ async function getTodos() {
   todoList.forEach((todo) => {
     const li = document.createElement('li')
     li.textContent = todo.text
+    li.id = todo.id
     list.appendChild(li)
   })
 }
 
 async function deleteTodo(toDoText) {
-  const response = await fetch('http://localhost/api/todo', {
+  const response = await fetch(`http://localhost/api/${toDoText}`, {
     method: 'DELETE',
     mode: 'cors', // no-cors, *cors, same-origin
-    body: JSON.stringify({ todo: toDoText }),
   })
 }
 
