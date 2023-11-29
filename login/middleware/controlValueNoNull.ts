@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 
-export function controlValue(
+export function controlValueNoNull(
   req: Request<{}, {}, { email?: string; pwd?: string }>,
   res: Response,
   next: NextFunction
