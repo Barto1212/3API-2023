@@ -1,15 +1,19 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
+import {configDotenv} from 'dotenv'
 
+configDotenv();
+const databasePort = process.env.DATABASE_PORT
+const databaseName = process.env.DATABASE_NAME
 export function connectDB() {
   mongoose
     .connect(
-      `mongodb+srv://${process.env.MONGO_ID}:${process.env.MONGO_PWD}@cluster0.3w9flsd.mongodb.net/?retryWrites=true&w=majority`,
+      `mongodb://localhost:${databasePort}/${databaseName}`
     )
     .then(() => {
-      console.log('connecté à mongo DB')
+      console.log('Connected to database')
     })
-    .catch((err) => {
-      console.log(`Erreur de connection à la base de donnée`)
+    .catch((err: any) => {
+      console.log(`Failed to connect to database: ${err}`)
       console.log(err)
     })
 }
