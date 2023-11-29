@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { getPosts } from "./utils/api";
 import { Post as PostType } from "../../types";
 import DialogForm from "./components/DialogForm";
+import Posts from "./components/Posts";
 
 const App = () => {
-  const [posts, setPosts] = useState<PostType[]>();
+  const [posts, setPosts] = useState<PostType[]>([]);
   useEffect(() => {
     getPosts().then((response) => {
       setPosts(() => [...response]);
@@ -15,9 +16,7 @@ const App = () => {
   return (
     <>
       <Container sx={{ width: "100%" }}>
-        <Stack spacing={5} direction="column" alignItems="center">
-          {posts && posts[0] && <Post {...posts[0]} />}
-        </Stack>
+        {posts && posts.length > 0 && <Posts posts={posts} />}
       </Container>
       <DialogForm />
     </>
