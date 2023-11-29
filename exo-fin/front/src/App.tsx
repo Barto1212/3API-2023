@@ -1,10 +1,10 @@
-import { Container, Stack } from "@mui/material";
-import Post from "./components/Post";
+import { Container } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getPosts } from "./utils/api";
 import { Post as PostType } from "../../types";
-import DialogForm from "./components/DialogForm";
+import DialogForm from "./components/dialogs/DialogForm";
 import Posts from "./components/Posts";
+import LoginForm from "./components/dialogs/LoginForm";
 
 const App = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -19,6 +19,7 @@ const App = () => {
         {posts && posts.length > 0 && <Posts posts={posts} />}
       </Container>
       <DialogForm />
+      <LoginForm />
     </>
   );
 };

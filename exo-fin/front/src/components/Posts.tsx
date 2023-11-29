@@ -11,7 +11,7 @@ const Posts: FC<P> = ({ posts }) => {
   return (
     <Stack spacing={5} direction="column" alignItems="center">
       {posts.map((post) => (
-        <Post {...post} />
+        <Post {...post} key={post._id} />
       ))}
     </Stack>
   );

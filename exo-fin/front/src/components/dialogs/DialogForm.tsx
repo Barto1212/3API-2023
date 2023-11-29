@@ -2,12 +2,11 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { TextField } from "@mui/material";
 import { useState, ChangeEvent } from "react";
-import { NewPost } from "../../../types";
-import { postPost } from "../utils/api";
+import { NewPost } from "../../../../types";
+import { postPost } from "../../utils/api";
 
 const emptyPost: NewPost = {
   title: "",
