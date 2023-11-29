@@ -5,6 +5,7 @@ import "dotenv/config";
 import cors from "cors";
 import { postPost } from "./controlers/postPost";
 import { patchPost } from "./controlers/patchPost";
+import { getAuthor } from "./middleware/getAuthor";
 
 connectDB();
 
@@ -13,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/post", getPost);
-app.post("/post", postPost);
+app.post("/post",getAuthor, postPost);
 app.patch("/post/:id", patchPost);
 
 app.listen(5000, () => console.log("server on"));

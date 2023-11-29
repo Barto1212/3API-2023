@@ -9,7 +9,14 @@ import { useState, type FC } from "react";
 import type { Post as PostProps } from "../../../types";
 import { patchPost } from "../utils/api";
 
-const Post: FC<PostProps> = ({ img, title, description, likes, _id }) => {
+const Post: FC<PostProps> = ({
+  img,
+  title,
+  description,
+  likes,
+  _id,
+  author,
+}) => {
   const [localLikes, setLocalLikes] = useState(likes);
   const plusOneLike = async () => {
     try {
@@ -31,6 +38,9 @@ const Post: FC<PostProps> = ({ img, title, description, likes, _id }) => {
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
+          </Typography>
+          <Typography variant="caption" color="text.secondary">
+            {author}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {description}
