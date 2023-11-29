@@ -1,0 +1,39 @@
+Index: express-todo-list/public/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>getTodos();\n\nconst form = document.querySelector(\"#form\");\nform.addEventListener(\"submit\", (e) => {\n  e.preventDefault();\n  const todo = document.querySelector(\"#todo\").value;\n  postData(\"http://localhost:3000/api/todos\", { todo: todo }).then(\n    (donnees) => {\n      console.log(donnees); // Les données JSON analysées par l'appel `donnees.json()`\n      document.querySelector(\"#form\").reset();\n      location.reload();\n    }\n  );\n  // GERER LE POST ICI\n});\ndocument.querySelector(\"#list\").addEventListener(\"click\", (e) => {\n  deleteTodo(e.target.innerText).then(location.reload);\n});\n\nasync function getTodos() {\n  const response = await fetch(\"http://localhost:3000/api/todos\", {\n    method: \"GET\",\n    mode: \"cors\", // no-cors, *cors, same-origin\n  });\n\n  const todoList = await response.json();\n  // const response = [\"Faire la vaisselle\", \"Faire une sieste\"];\n  const list = document.querySelector(\"#list\");\n  todoList.forEach((todo) => {\n    const li = document.createElement(\"li\");\n    li.textContent = todo;\n    list.appendChild(li);\n  });\n}\n\nasync function deleteTodo(toDoText) {\n  const response = await fetch(\"http://localhost:3000/api/todos\", {\n    method: \"DELETE\",\n    mode: \"cors\", // no-cors, *cors, same-origin\n    body: JSON.stringify({ todo: toDoText }),\n  });\n}\n\nasync function postData(url = \"\", donnees = {}) {\n  // Les options par défaut sont indiquées par *\n  const response = await fetch(url, {\n    method: \"POST\", // *GET, POST, PUT, DELETE, etc.\n    mode: \"cors\", // no-cors, *cors, same-origin\n    cache: \"no-cache\", // *default, no-cache, reload, force-cache, only-if-cached\n    credentials: \"same-origin\", // include, *same-origin, omit\n    headers: {\n      \"Content-Type\": \"application/json\",\n      // 'Content-Type': 'application/x-www-form-urlencoded',\n    },\n    redirect: \"follow\", // manual, *follow, error\n    referrerPolicy: \"no-referrer\", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url\n    body: JSON.stringify(donnees), // le type utilisé pour le corps doit correspondre à l'en-tête \"Content-Type\"\n  });\n  return await response; // transforme la réponse JSON reçue en objet JavaScript natif\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/express-todo-list/public/index.js b/express-todo-list/public/index.js
+--- a/express-todo-list/public/index.js	(revision b1d642886c804930e8112d75b36fbd389277e5d0)
++++ b/express-todo-list/public/index.js	(date 1701091155463)
+@@ -28,7 +28,7 @@
+   const list = document.querySelector("#list");
+   todoList.forEach((todo) => {
+     const li = document.createElement("li");
+-    li.textContent = todo;
++    li.textContent = todo.text;
+     list.appendChild(li);
+   });
+ }
+Index: toDolist/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// node index.js --add toDoItem\n// node index.js --ls\n// node index.js --rm toDoItem\n\nconst yargs = require('yargs')\nconst { addTodo } = require('./addTodo')\nconst { rmTodo } = require('./rmTodo')\nconst { lsTodo } = require('./lsTodo')\nconst argv = yargs\n  .option('add', {\n    type: 'string',\n    alias: 'a',\n  })\n  .option('ls', {\n    type: 'boolean',\n  })\n  .option('rm', {\n    type: 'string',\n  }).argv\n\nif (argv.add) {\n  addTodo(argv.add)\n}\nif (argv.rm) {\n  rmTodo(argv.rm)\n}\nif (argv.ls) {\n  lsTodo()\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/toDolist/index.js b/toDolist/index.js
+--- a/toDolist/index.js	(revision b1d642886c804930e8112d75b36fbd389277e5d0)
++++ b/toDolist/index.js	(date 1701088627926)
+@@ -1,6 +1,6 @@
+-// node index.js --add toDoItem
+-// node index.js --ls
+-// node index.js --rm toDoItem
++// node index.ts --add toDoItem
++// node index.ts --ls
++// node index.ts --rm toDoItem
+ 
+ const yargs = require('yargs')
+ const { addTodo } = require('./addTodo')

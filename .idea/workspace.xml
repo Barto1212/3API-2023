@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="74b29ce7-2659-4f24-b1c2-c125c3c5ab4b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/express-todo-list/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-todo-list/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-todo-list/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-todo-list/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-todo-list/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-todo-list/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/public/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-todo-list/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/public/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-todo-list/utils/connectDB.ts" beforeDir="false" afterPath="$PROJECT_DIR$/express-todo-list/utils/connectDB.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2Y9sNwcgWQQaoLBB4tKRQIQyaU1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "18.13.0",
+    "javascript.nodejs.core.library.typings.version": "18.13.0",
+    "last_opened_file_path": "/home/papylols/aJs_Projects/facebook",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/home/papylols/aJs_Projects/3API-2023/express-todo-list/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mail" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mail/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="JavaScriptTestRunnerProtractor" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/mail/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/mail/package.json" />
+      <command value="test" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.dev" />
+      <item itemvalue="npm.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74b29ce7-2659-4f24-b1c2-c125c3c5ab4b" name="Changes" comment="" />
+      <created>1699949095672</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699949095672</updated>
+      <workItem from="1699949096673" duration="7166000" />
+      <workItem from="1699956572533" duration="1893000" />
+      <workItem from="1699964737446" duration="10334000" />
+      <workItem from="1700035413760" duration="3498000" />
+      <workItem from="1701088046912" duration="10881000" />
+      <workItem from="1701158684707" duration="1981000" />
+      <workItem from="1701160733637" duration="15261000" />
+      <workItem from="1701183362348" duration="3288000" />
+      <workItem from="1701245099150" duration="9000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/express-todo-list/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
