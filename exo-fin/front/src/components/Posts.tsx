@@ -6,8 +6,6 @@ type P = {
   posts: PostProps[];
 };
 const Posts: FC<P> = ({ posts }) => {
-  console.log(posts);
-
   return (
     <Stack spacing={5} direction="column" alignItems="center">
       {posts.map((post) => (

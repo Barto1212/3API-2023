@@ -4,6 +4,7 @@ import { getPost } from "./controlers/getPost";
 import "dotenv/config";
 import cors from "cors";
 import { postPost } from "./controlers/postPost";
+import { patchPost } from "./controlers/patchPost";
 
 connectDB();
 
@@ -13,5 +14,6 @@ app.use(express.json());
 
 app.get("/post", getPost);
 app.post("/post", postPost);
+app.patch("/post/:id", patchPost);
 
 app.listen(5000, () => console.log("server on"));

@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getPosts } from "./utils/api";
 import { Post as PostType } from "../../types";
@@ -15,11 +15,18 @@ const App = () => {
   }, []);
   return (
     <>
+      <Stack
+        sx={{ marginBottom: 5 }}
+        direction="row"
+        spacing={3}
+        justifyContent="flex-end"
+      >
+        <DialogForm />
+        <LoginForm />
+      </Stack>
       <Container sx={{ width: "100%" }}>
         {posts && posts.length > 0 && <Posts posts={posts} />}
       </Container>
-      <DialogForm />
-      <LoginForm />
     </>
   );
 };
