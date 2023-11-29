@@ -6,6 +6,7 @@ import cors from "cors";
 import { postPost } from "./controlers/postPost";
 import { patchPost } from "./controlers/patchPost";
 import { getAuthor } from "./middleware/getAuthor";
+import { deletePost } from "./controlers/deletePost";
 
 connectDB();
 
@@ -16,5 +17,6 @@ app.use(express.json());
 app.get("/post", getPost);
 app.post("/post",getAuthor, postPost);
 app.patch("/post/:id", patchPost);
+app.delete("/post/:id", deletePost);
 
 app.listen(5000, () => console.log("server on"));

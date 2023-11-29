@@ -36,3 +36,7 @@ export const patchPost: (
   );
   return newPost.data;
 };
+
+export const deletePost: (id: string) => Promise<void> = async (id) => {
+  await axios.delete<void>(`http://localhost:5000/post/${id}`);
+};

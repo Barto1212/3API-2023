@@ -7,17 +7,18 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import { useState, type FC } from "react";
 import type { Post as PostProps } from "../../../types";
-import { patchPost } from "../utils/api";
+import { deletePost, patchPost } from "../utils/api";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-const Post: FC<PostProps> = ({
-  img,
-  title,
-  description,
-  likes,
-  _id,
-  author,
-}) => {
+type P = {
+  post: PostProps;
+  deleteFunc: (id: string) => void;
+};
+
+const Post: FC<P> = ({ deleteFunc, post }) => {
+  const { img, title, description, likes, _id, author } = post;
   const [localLikes, setLocalLikes] = useState(likes);
+
   const plusOneLike = async () => {
     try {
       await patchPost(_id, { likes: likes + 1 });
@@ -47,13 +48,17 @@ const Post: FC<PostProps> = ({
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton onClick={plusOneLike} aria-label="add to favorites">
+          <IconButton onClick={plusOneLike} aria-label="like">
             <FavoriteIcon />
             {localLikes}
+          </IconButton>
+          <IconButton onClick={() => deleteFunc(_id)} aria-label="delete">
+            <DeleteIcon />
           </IconButton>
         </CardActions>
       </CardActionArea>
     </Card>
   );
 };
+
 export default Post;
