@@ -1,8 +1,12 @@
 import type { Request, Response } from "express";
-import type { Post } from "../../types";
+import type { NewPost, Post } from "../../types";
 import { PostMongoose } from "../models/Post";
 
-export async function getPost(req: Request, res: Response) {
+export async function postPost(req: Request<{}, {}, NewPost>, res: Response) {
+  // req.body.
+  const newPost = new PostMongoose({ ...req.body });
+  const newSavedPost = await newPost.save();
+
   // const post: Post = {
   //   img: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
   //   title: "Lizard",
@@ -13,10 +17,5 @@ export async function getPost(req: Request, res: Response) {
   //   author: "LB",
   //   likes: 3,
   // };
-  try {
-    const posts = await PostMongoose.find({});
-    res.send(posts);
-  } catch (error) {
-    res.sendStatus(500);
-  }
+  res.status(201).send(newSavedPost._id);
 }

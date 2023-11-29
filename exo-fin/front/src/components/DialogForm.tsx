@@ -28,9 +28,11 @@ export default function DialogForm() {
 
   const handleClose = () => {
     setOpen(false);
+    setPostFormValue(emptyPost);
   };
   const handleSend = () => {
     postPost(postFormValue).then(() => {
+      setPostFormValue(emptyPost);
       handleClose();
     });
   };

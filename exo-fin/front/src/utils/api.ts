@@ -10,3 +10,10 @@ export const postPost: (newPost: NewPost) => Promise<string> = async (newPost) =
   const posts = (await axios.post<string>("http://localhost:5000/post",newPost)) ;
   return posts.data;
 };
+
+
+export const patchPost: (id: string, obj: Partial<NewPost>) => Promise<Post> = async (id, obj) => {
+  const newPost = await axios.patch<Post>(`http://localhost:5000/post/${id}`,obj)
+  return newPost.data;
+};
+
