@@ -1,15 +1,21 @@
-import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
-import { deepOrange, deepPurple } from "@mui/material/colors";
+import { Container, Stack } from "@mui/material";
+import Post from "./components/Post";
 
-function App() {
-  return (
-    <Stack direction="row" spacing={2}>
-      <Avatar>H</Avatar>
-      <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-      <Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>
+const App = () => (
+  <Container sx={{ width: "100%" }}>
+    <Stack spacing={5} direction="column" alignItems="center">
+      <Post
+        img="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+        title="Lizard"
+        _id="2"
+        description="Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica"
+        date={new Date()}
+        author="LB"
+        likes={3}
+      />
     </Stack>
-  );
-}
+  </Container>
+);
 
 export default App;
